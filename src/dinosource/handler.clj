@@ -9,10 +9,10 @@
              	[clojure.data.json :as json]))
 
 (defroutes app-routes
-    (GET "/exercise" [] (response (get-exercise)))
-    (GET "/exercise/:id" [id]
+    (GET "/exercises" [] (response (get-exercise)))
+    (GET "/exercises/:id" [id]
          (response (get-exercise (Integer. id))))
-    (POST "/exercise/:id" {params :params}
+    (POST "/exercises/:id" {params :params}
          (response params))
     (route/files "/")
   	(route/not-found "Not Found"))
