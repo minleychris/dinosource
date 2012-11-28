@@ -17,6 +17,16 @@ To start a web server for the application, run:
 
 Anything in the public directory will be served directly
 
+## API
+
+The following routes are available:
+
+* `GET /exercise/` - a list of exercises
+* `GET /exercise/<id>` - a single exercise
+* `POST /exercise/<id>` - send the code produced from a specific exercise, returns an object containing the results of executing it
+
+The `Accept` header in the incoming request defines the mime-type of the response.  JSON is the default.
+
 ## License
 
 Copyright © 2012 FIXME
