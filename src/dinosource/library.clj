@@ -18,8 +18,10 @@
 
 (defn get-signature [function-name]
   (let [function (get-function function-name)]
-    {:name (name function-name)
-     :params (get-params function)}))
+    (if (nil? function)
+      (throw (Exception. (str "Unknown function: " (name function-name))))
+      {:name (name function-name)
+       :params (get-params function)})))
 
 (defn get-signatures [& functions-names]
   (map get-signature functions-names))
@@ -30,3 +32,8 @@
   [{:x x
     :y y
     :state :on}])
+
+(defn off [x y]
+  [{ :x x
+    :y y
+    :state :off}])
