@@ -23,7 +23,7 @@ The following routes are available:
 
 * `GET /exercises/` - a list of exercises
 * `GET /exercises/<id>` - a single exercise
-* `POST /exercises/<id>` - send the code produced from a specific exercise, returns an object containing the results of executing it
+* `POST /solutions/<id>` - send the code produced from a specific exercise, returns an object containing the results of executing it
 
 The `Accept` header in the incoming request defines the mime-type of the response.  JSON is the default.
 
