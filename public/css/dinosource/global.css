@@ -5,3 +5,11 @@
     margin-bottom: 10px;
     box-shadow: inset 0 0 5px rgba(0,0,0, 0.8)
 }
+
+.block-common {
+    border: 1px solid gray;
+    padding: 5px;
+    margin: 5px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}

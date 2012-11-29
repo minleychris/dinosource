@@ -22,7 +22,7 @@ CodeBlock.prototype = {
 
     createElement: function() {
 
-        this.element = $("<div data-type='code-block' data-id='" + this.model.id + "'class='js-code-block code-block'><span class='js-code-block-name code-block-name'>" + this.model.name + "</span></div>");
+        this.element = $("<div data-type='code-block' data-id='" + this.model.id + "'class='block-common js-code-block code-block'><span class='js-code-block-name code-block-name'>" + this.model.name + "</span></div>");
         if(this.model.params) {
             for(var i=0; i<this.model.params.length; i++) {
 

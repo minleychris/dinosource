@@ -14,7 +14,7 @@ Block.prototype = {
 
     createElement: function() {
 
-        this.element = $("<div data-type='library-block' data-id='" + this.model.id + "'class='js-block block'><span class='js-block-name block-name'>" + this.model.name + "</span></div>");
+        this.element = $("<div data-type='library-block' data-id='" + this.model.id + "'class='block-common js-block block'><span class='js-block-name block-name'>" + this.model.name + "</span></div>");
         if(this.model.params) {
             for(var i=0; i<this.model.params.length; i++) {
 
