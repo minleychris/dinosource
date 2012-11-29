@@ -15,42 +15,54 @@
         <link rel="stylesheet" href="css/blueprint/screen.css">
         <link rel="stylesheet" href="css/clippy/clippy.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/dinosource/skeleton.css">
         <link rel="stylesheet" href="css/dinosource/block.css">
+        <link rel="stylesheet" href="css/dinosource/exercise.css">
         <link rel="stylesheet" href="css/dinosource/grid.css">
         <link rel="stylesheet" href="css/dinosource/library.css">
+        <link rel="stylesheet" href="css/dinosource/source.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+        <div class="container main-container">
+            <!--[if lt IE 7]>
+                <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+            <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <h1>Dinosource</h1>
+            <!-- Add your site or application content here -->
+            <section class="page-header span-24">
+                <h1 class="logo span-8">Dinosource</h1>
 
-        <h2 class="exercise-title"></h2>
-        <p class="exercise-description"></p>
+                <h2 class="exercise-title span-8"></h2>
+                <p class="exercise-description span-8 last"></p>
+            </section>
 
-        <section class="exercises">
-            <h2>exercises</h2>
-            <div id="exercises"></div>
-        </section>
-        <section class="library">
-            <h2>Library</h2>
-            <div id="library"></div>
-        </section>
-        <section class="script">
-            <h2>script</h2>
-            <ol id="script"></ol>
-        </section>
-        <section class="source">
-            <h2>source</h2>
-            <div id="source"></div>
-            <a class="action-play">Play!</a>
-        </section>
-        <section id="grid" class="grid">
-            <h2>grid</h2>
-        </section>
+            <section class="exercises span-24">
+                <h2>exercises</h2>
+                <div id="exercises"></div>
+            </section>
+
+            <section class="tools-panel span-8">
+                <section class="library section">
+                    <h2>Library</h2>
+                    <div id="library"></div>
+                </section>
+                <section class="script section">
+                    <h2>script</h2>
+                    <ol id="script"></ol>
+                </section>
+            </section>
+
+            <section class="source span-8 section">
+                <h2>source</h2>
+                <div id="source"></div>
+                <a class="action-play play-button">Play!</a>
+            </section>
+
+            <section id="grid" class="grid span-8 section last">
+                <h2>grid</h2>
+            </section>
+        </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>

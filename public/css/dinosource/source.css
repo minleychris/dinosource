@@ -1,0 +1,12 @@
+.source {
+    min-height: 400px;
+    position: relative;
+}
+
+.play-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 5px;
+
+}
