@@ -8,8 +8,14 @@ CodeBlock.prototype = {
     init: function(id, block){
 
         this.model = {
-            name: block.name
+            name: block.name,
+            params: []
         };
+        if(block.params) {
+            for(var i=0; i<block.params.length; i++) {
+                this.model.params.push(block.params[i]);
+            }
+        }
         this.createElement();
     },
 
@@ -20,7 +26,7 @@ CodeBlock.prototype = {
             for(var i=0; i<this.model.params.length; i++) {
 
                 var param = this.model.params[i];
-                this.element.append("<div class='js-code-block-param block-param'>" + param.name + "</div>");
+                this.element.append("<div class='js-code-block-param code-block-param'><input type='number' min='0' max='9' step='1' size='1' placeholder='" + param.name + "'></div>");
             }
         }
         this.element.draggable({ revert: true });
