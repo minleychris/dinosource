@@ -1,6 +1,7 @@
 (ns dinosource.handler
   	(:use compojure.core
           dinosource.exercise
+          dinosource.solution
           ring.util.response
           [ring.middleware.format-response :only [wrap-restful-response]]
           [ring.middleware.format-params :only [wrap-restful-params]])
@@ -13,7 +14,8 @@
     (GET "/exercises/:id" [id]
          (response (get-exercise (Integer. id))))
     (POST "/solutions/:id" {params :params}
-         (response params))
+;         (. System/out (println params)))
+          (response (process-solution params)))
     (route/files "/")
   	(route/not-found "Not Found"))
 
