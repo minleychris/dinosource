@@ -15,6 +15,7 @@ Exercises.prototype = {
         for(var i=0; i<model.exercises.length; i++) {
 
             var exercise = new Exercise(this.element, model.exercises[i]);
+            this.exercises.push(exercise);
         }
     }
 };

@@ -1,0 +1,20 @@
+.block {
+    border: 1px solid gray;
+    padding: 5px;
+    margin: 5px;
+}
+
+    .block-name {
+        display: inline-block;
+        margin: 5px 10px;
+        padding: 5px 10px;
+
+        font-weight: bold;
+    }
+    .block-param {
+        display: inline-block;
+        margin: 5px 10px;
+        padding: 5px 10px;
+
+        border: 2px dashed #444;
+    }

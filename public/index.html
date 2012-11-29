@@ -15,7 +15,9 @@
         <link rel="stylesheet" href="css/blueprint/screen.css">
         <link rel="stylesheet" href="css/clippy/clippy.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/dinosource/block.css">
         <link rel="stylesheet" href="css/dinosource/grid.css">
+        <link rel="stylesheet" href="css/dinosource/library.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
@@ -29,14 +31,17 @@
         <h2 class="exercise-title"></h2>
         <p class="exercise-description"></p>
 
-        <section id="exercises" class="exercises">
+        <section class="exercises">
             <h2>exercises</h2>
+            <div id="exercises"></div>
         </section>
-        <section id="library" class="library">
+        <section class="library">
             <h2>Library</h2>
+            <div id="library"></div>
         </section>
-        <section id="source" class="source">
+        <section class="source">
             <h2>source</h2>
+            <div id="source"></div>
             <a class="action-play">Play!</a>
         </section>
         <section id="grid" class="grid">
@@ -47,19 +52,12 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/vendor/clippy.js"></script>
+        <script src="js/modules/block.js"></script>
         <script src="js/modules/exercises.js"></script>
         <script src="js/modules/exercise.js"></script>
+        <script src="js/modules/grid.js"></script>
         <script src="js/modules/library.js"></script>
         <script src="js/modules/source.js"></script>
-        <script src="js/modules/grid.js"></script>
         <script src="js/main.js"></script>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
     </body>
 </html>
