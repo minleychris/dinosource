@@ -1,14 +1,1 @@
-.grid-row {
-    display: block;
-}
 
-.grid-cell {
-    list-style: none;
-    display: inline-block;
-    border: 1px solid grey;
-    width: 20px;
-    height: 20px;
-}
-    .grid-cell.on {
-        background: red;
-    }
