@@ -21,16 +21,24 @@ App.prototype = {
         this.source = new Source($("#source"), {});
         this.grid = new Grid($("#grid"), {});
         this.assignEvents();
+        var self = this;
+        clippy.load('Clippy', function(agent) {
+            // Do anything with the loaded agent
+            debugger;
+            self.agent = agent;
+            agent.show();
+            agent.play('Searching');
+        });
     },
 
     assignEvents: function() {
         
-        $(".action-play").on("click", this.playClicked);
+        $(".action-play").on("click", $.proxy(this.playClicked, this));
     },
 
     playClicked: function() {
 
-        alert("la cucaracha");
+        this.agent.speak('La cucaracha ya no puede caminar');
     },
 
     getExercises: function() {
