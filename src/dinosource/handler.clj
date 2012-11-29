@@ -12,7 +12,7 @@
     (GET "/exercises" [] (response (get-exercise)))
     (GET "/exercises/:id" [id]
          (response (get-exercise (Integer. id))))
-    (POST "/exercises/:id" {params :params}
+    (POST "/solutions/:id" {params :params}
          (response params))
     (route/files "/")
   	(route/not-found "Not Found"))
