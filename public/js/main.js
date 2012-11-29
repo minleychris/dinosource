@@ -20,6 +20,17 @@ App.prototype = {
         this.library = new Library($("#library"), {});
         this.source = new Source($("#source"), {});
         this.grid = new Grid($("#grid"), {});
+        this.assignEvents();
+    },
+
+    assignEvents: function() {
+        
+        $(".action-play").on("click", this.playClicked);
+    },
+
+    playClicked: function() {
+
+        alert("la cucaracha");
     },
 
     getExercises: function() {
@@ -49,6 +60,7 @@ App.prototype = {
 
         this.element.find(".exercise-title").html(title);
     },
+
     setDescription: function(description){
 
         this.element.find(".exercise-description").html(description);
