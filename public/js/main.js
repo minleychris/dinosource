@@ -18,19 +18,27 @@ App.prototype = {
 
         this.getExercises();
         this.library = new Library($("#library"), {});
+        this.script = new Script($("#script"), {});
         this.source = new Source($("#source"), {});
         this.grid = new Grid($("#grid"), {});
         this.assignEvents();
+        var self = this;
+        clippy.load('Clippy', function(agent) {
+            // Do anything with the loaded agent
+            self.agent = agent;
+            agent.show();
+            agent.play('Searching');
+        });
     },
 
     assignEvents: function() {
         
-        $(".action-play").on("click", this.playClicked);
+        $(".action-play").on("click", $.proxy(this.playClicked, this));
     },
 
     playClicked: function() {
 
-        alert("la cucaracha");
+        this.agent.speak('La cucaracha ya no puede caminar');
     },
 
     getExercises: function() {
@@ -50,8 +58,10 @@ App.prototype = {
         if($.isArray(data)) {
             data = data[0];
         }
+
         this.library.load(data.library);
-        this.source.load(data.script);
+        this.script.load(data.script);
+        this.source.load({});
         this.setTitle(data.title);
         this.setDescription(data.title);
     },
