@@ -3,12 +3,16 @@
         ring.mock.request  
         dinosource.handler))
 
-(comment (deftest test-app
-  (testing "main route"
-    (let [response (app (request :get "/"))]
+(deftest test-app
+  (testing "solutions 1"
+    (let [response (app (body (request :post "/solutions/1") "{
+  \"code\": [
+    {\"id\": \"foo\",
+     \"function\": \"on\",
+     \"params\": [1, 2]
+    }
+  ]
+}"))]
       (is (= (:status response) 200))
-      (is (= (:body response) "Hello World"))))
-
-  (testing "not-found route"
-    (let [response (app (request :get "/invalid"))]
-      (is (= (:status response) 404))))))
+      (is (= (slurp (:body response))
+             "{\"steps\":[{\"highlight\":[\"foo\"],\"changes\":[{\"x\":1,\"y\":2,\"state\":\"on\"}]}]}")))))

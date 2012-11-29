@@ -12,4 +12,22 @@
       (is (= (:highlight step) [:foo]))
       (is (= (:changes step) [{:x 1
                                :y 2
-                               :state :on}])))))
+                               :state :on}]))))
+  (testing "just on"
+    (let [code {:code [{:id :foo1
+                       	:function "on"
+                        :params [1 2]}
+                       {:id :foo2
+                       	:function "on"
+                        :params [1 2]}]}
+          solution (process-solution code)
+          step1 (first (:steps solution))
+          step2 (nth (:steps solution) 1)]
+      (is (= (:highlight step1) [:foo1]))
+      (is (= (:changes step1) [{:x 1
+                                :y 2
+                                :state :on}]))
+      (is (= (:highlight step2) [:foo2]))
+      (is (= (:changes step2) [{:x 1
+                                :y 2
+                                :state :on}])))))
