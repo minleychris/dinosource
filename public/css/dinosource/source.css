@@ -3,6 +3,12 @@
     position: relative;
 }
 
+.source-slot {
+    min-height: 20px;
+    border: 2px dashed #ddd;
+    margin-bottom: 5px;
+}
+
 .play-button {
     position: absolute;
     bottom: 0;
