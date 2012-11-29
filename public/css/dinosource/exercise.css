@@ -1,3 +1,12 @@
+.exercises {
+    text-align: center;
+}
+    .exercises-title {
+        margin-bottom: 5px;
+        text-align: left;
+    }
+
 .exercise-link {
-    display: block;
+    display: inline-block;
+    margin-right: 10px;
 }
