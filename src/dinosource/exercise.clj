@@ -1,10 +1,11 @@
-(ns dinosource.exercise)
+(ns dinosource.exercise
+  (:require [dinosource.library :as library]))
 
 (def exercises
-  [{:title "Exercise 1"
-    :description "The first exercise"
+  [{:title "Turn a pixel on"
+    :description ""
     :id 0
-    :library []
+    :library (library/get-signatures :on)
     :script []}
    {:title "Exercise 2"
     :description "The second exercise"
