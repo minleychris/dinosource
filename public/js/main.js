@@ -27,6 +27,7 @@ App.prototype = {
             // Do anything with the loaded agent
             self.agent = agent;
             agent.show();
+            self.script.speakStep(0);
         });
     },
 

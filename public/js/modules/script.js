@@ -22,8 +22,6 @@ Script.prototype = {
             this.steps.push(newStep);
         }
         this.printSteps();
-
-        this.speakStep(0);
     },
 
     printSteps: function() {
