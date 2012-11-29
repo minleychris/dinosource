@@ -8,7 +8,7 @@
     (let [response (app (body (request :post "/solutions/1") "{
   \"code\": [
     {\"id\": \"foo\",
-     \"function\": \"on\",
+     \"name\": \"on\",
      \"params\": [1, 2]
     }
   ]

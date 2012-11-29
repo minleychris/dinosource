@@ -83,5 +83,7 @@ Source.prototype = {
         return this.blocks[blockId];
     },
 
-    load : function(data) {}
-}; 
+    load : function(data) {},
+
+    highlight: function(id) {}
+};

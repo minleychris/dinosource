@@ -5,7 +5,7 @@
 (deftest test-process-solution
   (testing "just on"
     (let [code {:code [{:id :foo
-                       	:function "on"
+                       	:name "on"
                         :params [1 2]}]}
           solution (process-solution code)
           step (first (:steps solution))]
@@ -15,10 +15,10 @@
                                :state :on}]))))
   (testing "just on"
     (let [code {:code [{:id :foo1
-                       	:function "on"
+                       	:name "on"
                         :params [1 2]}
                        {:id :foo2
-                       	:function "on"
+                       	:name "on"
                         :params [1 2]}]}
           solution (process-solution code)
           step1 (first (:steps solution))
