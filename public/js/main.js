@@ -52,6 +52,8 @@ App.prototype = {
             if (data.steps) {
                 var steps = data.steps;
 
+                self.grid.clear();
+
                 function step (i) {
                     return function() {
                         var step = steps[i];
@@ -72,7 +74,7 @@ App.prototype = {
                 }
 
                 for (var x in steps) {
-                    setTimeout(step(x), 3000*x);
+                    setTimeout(step(x), 3000*(x+1));
                 }
             }
         });
