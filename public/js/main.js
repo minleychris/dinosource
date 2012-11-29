@@ -18,6 +18,7 @@ App.prototype = {
 
         this.getExercises();
         this.library = new Library($("#library"), {});
+        this.script = new Script($("#script"), {});
         this.source = new Source($("#source"), {});
         this.grid = new Grid($("#grid"), {});
         this.assignEvents();
@@ -57,8 +58,10 @@ App.prototype = {
         if($.isArray(data)) {
             data = data[0];
         }
+
         this.library.load(data.library);
-        this.source.load(data.script);
+        this.script.load(data.script);
+        this.source.load({});
         this.setTitle(data.title);
         this.setDescription(data.title);
     },
