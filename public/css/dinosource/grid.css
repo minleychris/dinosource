@@ -9,3 +9,6 @@
     width: 20px;
     height: 20px;
 }
+    .grid-cell.on {
+        background: red;
+    }
