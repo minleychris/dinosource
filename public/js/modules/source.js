@@ -7,5 +7,9 @@ Source.prototype = {
 
     init: function(element, model){
 
+    },
+
+    load: function(data) {
+
     }
 };
