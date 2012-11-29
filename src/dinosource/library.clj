@@ -20,6 +20,7 @@
   (let [function (get-function function-name)]
     (if (nil? function)
       (throw (Exception. (str "Unknown function: " (name function-name))))
+      ;; FIXME: :name or :function? We use one for exercise and another for code.
       {:name (name function-name)
        :params (get-params function)})))
 
@@ -37,3 +38,6 @@
   [{ :x x
     :y y
     :state :off}])
+
+(defn block [name params body]
+  )
