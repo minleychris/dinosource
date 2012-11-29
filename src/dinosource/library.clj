@@ -12,17 +12,24 @@
 (defn get-function [name]
   (name (available-functions)))
 
-(defn get-params [function]
-  (let [param-list (first (:arglists (meta function)))]
-    (map #(hash-map :name %) param-list)))
+(defn get-params
+  ;; Gets the parameter list for function.
+  ;; By default, gets the last (i.e., biggest) arity available.
+  ([function] (get-params nil))
+  ([function arity]
+     (let [param-list (if (nil? arity)
+                        (last (:arglists (meta function)))
+                        (first (filter #(= (count %) arity) (:arglists (meta function)))))]
+       (map #(hash-map :name %) param-list))))
 
-(defn get-signature [function-name]
-  (let [function (get-function function-name)]
-    (if (nil? function)
-      (throw (Exception. (str "Unknown function: " (name function-name))))
-      ;; FIXME: :name or :function? We use one for exercise and another for code.
-      {:name (name function-name)
-       :params (get-params function)})))
+(defn get-signature
+  ([function-name] (get-signature function-name nil))
+  ([function-name arity]
+     (let [function (get-function function-name)]
+       (if (nil? function)
+         (throw (Exception. (str "Unknown function: " (name function-name))))
+         {:name (name function-name)
+          :params (get-params function arity)}))))
 
 (defn get-signatures [& functions-names]
   (map get-signature functions-names))
@@ -39,5 +46,6 @@
     :y y
     :state :off}])
 
-(defn block [name params body]
-  )
+(defn block
+  ([name body] (block (name [] body)))
+  ([name parameters body]))
