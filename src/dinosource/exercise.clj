@@ -51,9 +51,9 @@
       :id 5
       :library (library/get-signatures :on :off :block)
       :script ["Blinking a pixel is fun, but repeating the same blocks over and over is not. What we really want is to give a name to \"turn this pixel on, then turn it off\", and just say that name when we want it to happen."
-               "That means we're creating, or \"defining\", our own blocks, just like On and Off. So, let's define a block to blink a specific pixel. There is a new block on the library, called \"define\". Drag it to the code section."
+               "That means we're creating our own blocks, just like On and Off. So, let's create a block to blink a specific pixel. There is a new block on the library, called \"Block\". Drag it to the code section."
                "In the first empty space, fill in the name of the new block. For instance, \"Blink\". Now, drag the On block from the library into the body of your new block. Fill it in with a position, like the one from the previous exercise (3, 3). Finally, drag the Off block from the library into your new block, below the On one that you've just dragged, and fill it in with the same position."
-               "Now, we have only defined the block. To make it actually execute On and Off, we need to \"call\" it. Notice that your new Blink block appeared in the library. So drag it from the library into the code section."
+               "Now, we have only created the block. To make it actually execute On and Off, we need to \"call\" it. Notice that your new Blink block appeared in the library. So drag it from the library into the code section."
                "Just like On and Off, you can call your Blink block as many times as you want. So, drag it a few times into the code section."
                "Now press Play, and watch your Blink block in action!"]}
 
