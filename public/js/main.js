@@ -50,7 +50,7 @@ App.prototype = {
 
     populateExercises: function(result) {
 
-        this.exercises = new Exercises($("#exercises"), result)
+        this.exercises = new Exercises($("#exercises"), result);
     },
 
     showExercise: function(data) {
