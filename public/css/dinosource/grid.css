@@ -1,15 +1,15 @@
 .grid-row {
     display: block;
     margin-bottom: 0;
-    height: 23px;
+    height: 33px;
 }
 
 .grid-cell {
     list-style: none;
     display: inline-block;
     border: 1px solid #808080;
-    width: 23px;
-    height: 23px;
+    width: 33px;
+    height: 33px;
     
 }
     .grid-cell.on {

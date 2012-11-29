@@ -10,3 +10,12 @@
     display: inline-block;
     margin-right: 10px;
 }
+
+
+.exercise-title, .exercise-description {
+    display: inline-block;
+}
+.exercise-description {
+    color: #666;
+    margin-left: 10px;
+}
