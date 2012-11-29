@@ -14,7 +14,7 @@ Block.prototype = {
 
     createElement: function() {
 
-        this.element = $("<div class='block'><span class='js-block-name block-name'>" + this.model.name + "</span></div>");
+        this.element = $("<div data-type='library-block' data-id='" + this.model.id + "'class='js-block block'><span class='js-block-name block-name'>" + this.model.name + "</span></div>");
         if(this.model.params) {
             for(var i=0; i<this.model.params.length; i++) {
 
@@ -22,6 +22,7 @@ Block.prototype = {
                 this.element.append("<div class='js-block-param block-param'>" + param.name + "</div>");
             }
         }
+        this.element.draggable({ revert: true });
     },
 
     getElement: function() {

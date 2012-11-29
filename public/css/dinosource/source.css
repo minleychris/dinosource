@@ -8,8 +8,10 @@
     border: 2px dashed #ddd;
     margin-bottom: 5px;
 }
-
-.play-button {
+    .source-slot.drop-hover {
+        border: 2px dashed #333;
+    }
+.play-button { 
     position: absolute;
     bottom: 0;
     right: 0;

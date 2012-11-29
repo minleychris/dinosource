@@ -5,6 +5,8 @@ function Library(element, model) {
 
 Library.prototype = {
 
+    autoIncrement: 1,
+
     init: function(element, model){
 
         this.element = element;
@@ -18,6 +20,9 @@ Library.prototype = {
         this.model = data;
         for(var i=0; i<this.model.length; i++) {
 
+            if(!this.model[i].id) {
+                this.model[i].id = this.autoIncrement++;
+            }
             var newBlock = new Block(this.model[i]);
             this.blocks.push(newBlock);
         }
@@ -31,5 +36,14 @@ Library.prototype = {
 
             this.element.append(this.blocks[i].getElement());
         }
+    },
+    getBlock: function(blockId) {
+
+        for(var i=0; i<this.blocks.length; i++) {
+            if(this.blocks[i].model.id == blockId) {
+                return this.blocks[i];
+            }
+        }
+        return false;
     }
 };
