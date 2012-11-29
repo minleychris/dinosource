@@ -11,6 +11,7 @@ Exercises.prototype = {
         this.model = model;
 
         this.exercises = [];
+        this.activeExercise = false;
 
         for(var i=0; i<model.exercises.length; i++) {
 

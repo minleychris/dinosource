@@ -27,6 +27,7 @@ App.prototype = {
             // Do anything with the loaded agent
             self.agent = agent;
             agent.show();
+            self.script.speakStep(0);
         });
     },
 
@@ -36,15 +37,52 @@ App.prototype = {
     },
 
     playClicked: function() {
+        var id = 1;
+        var self = this;
 
-        this.agent.speak('La cucaracha ya no puede caminar');
+        var code = this.source.getModel();
+
+        $.ajax({
+            type: "POST",
+            url: "/solutions/" + id,
+            contentType : 'application/json',
+            processData: false,
+            data: JSON.stringify(code)
+        }).done(function (data) {
+            if (data.steps) {
+                var steps = data.steps;
+
+                function step (i) {
+                    return function() {
+                        var step = steps[i];
+
+                        for (var j in step.highlight) {
+                            self.source.highlight(step.highlight[j]);
+                        }
+
+                        for (var j in step.changes) {
+                            var change = step.changes[j];
+                            if (change.state === "on") {
+                                self.grid.on(change.x, change.y);
+                            } else if (change.state === "off") {
+                                self.grid.off(change.x, change.y);
+                            }
+                        }
+                    }
+                }
+
+                for (var x in steps) {
+                    setTimeout(step(x), 3000*x);
+                }
+            }
+        });
     },
 
     getExercises: function() {
         $.ajax({
             type: "GET",
             url: "/exercises"
-        }).done(this.populateExercises);
+        }).done($.proxy(this.populateExercises, this));
     },
 
     populateExercises: function(result) {
@@ -58,6 +96,7 @@ App.prototype = {
             data = data[0];
         }
 
+        this.exercises.activeExercise = data.id;
         this.library.load(data.library);
         this.script.load(data.script);
         this.source.load({});

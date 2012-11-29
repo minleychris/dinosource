@@ -1,10 +1,31 @@
 .main-container {
     box-shadow: 0 0 8px rgba(0,0,0,0.8);
-    border-radius(5px);
-}
-
-.section {
-    padding: 5px;
-    border: 1px solid black;
+    border-radius: 5px;
+    width: 1200px;
+    margin: 20px auto;
+    overflow: hidden;
+    padding: 20px;
     box-sizing: border-box;
 }
+
+.tools-panel {
+    box-sizing: border-box;
+    float: left;
+    width: 400px;
+    margin-right: 20px;
+}
+
+.source {
+    box-sizing: border-box;
+    float: left;
+    width: 400px;
+    margin-right: 20px;
+}
+
+.grid {
+    box-sizing: border-box;
+    float: left;
+    width: 320px;
+    padding-bottom: 30px;
+}
+

@@ -2,7 +2,7 @@
   (:require [dinosource.library :as library]))
 
 (defn parse-block [{id :id
-                   	function :function
+                   	function :name
                    	params :params}]
   {:highlight [id]
    :changes (apply (library/get-function (keyword function)) params)})

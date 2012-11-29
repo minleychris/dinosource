@@ -13,6 +13,7 @@ Source.prototype = {
         this.model = model || {};
         this.model.code = this.model.code || [];
         this.prepareLayout();
+        this.blocks = {};
     },
 
     prepareLayout : function() {
@@ -20,19 +21,24 @@ Source.prototype = {
         //If the first thing is not a slot container create it
         if ((this.element.children().length === 0) || !this.element.children().first().hasClass("js-source-slot")) {
 
-            var slot = $("<div class='js-source-slot source-slot'>");
+            var slot = this.createSlot();
             slot.prependTo(this.element);
-            slot.droppable({
-                accept : ".js-block",
-                hoverClass: "drop-hover",
-                drop: $.proxy(this.droppedOnSlot, this)
-            });
         }
+    },
+
+    createSlot: function() {
+
+        var slot = $("<div class='js-source-slot source-slot'>");
+        slot.droppable({
+            accept : ".js-block",
+            hoverClass: "drop-hover",
+            drop: $.proxy(this.droppedOnSlot, this)
+        });
+        return slot;
     },
 
     droppedOnSlot: function( event, ui ) {
 
-        
         var slot = $(event.srcElement);
         var received = ui.draggable;
         var blockId = received.data("id");
@@ -46,23 +52,38 @@ Source.prototype = {
     addBlock: function(blockId, slot) {
 
         var block = window.app.library.getBlock(blockId);
-        var slotPosition = this.getSlotPosition(slot);
         var codeBlock = new CodeBlock(this.autoIncrement++, block.model);
+        this.blocks[codeBlock.model.id] = codeBlock;
         var codeBlockElement = codeBlock.getElement();
         codeBlockElement.insertBefore(slot);
-        $("<div class='js-source-slot source-slot'>").insertBefore(codeBlockElement);
+        var newSlot = this.createSlot();
+        newSlot.insertBefore(codeBlockElement);
     },
 
-    getSlotPosition: function(slot) {
+    getModel: function() {
 
-        var prev = slot.prev();
-        if(prev.length === 0) {
-            //Nothing before, first position
-            return 0;
+        var children = this.element.children();
+        var model = {
+            code: []
+        };
+
+        for(var i=0; i<children.length; i++) {
+
+            var element = $(children[i]);
+            if(element.data("type")=="code-block") {
+                var codeBlock = this.getCodeBlock(element.data("id"));
+                model.code.push(codeBlock.getModel());
+            }
         }
-        //TODO
-        //prev.data("id");
+        return model;
     },
 
-    load : function(data) {}
-}; 
+    getCodeBlock: function(blockId) {
+
+        return this.blocks[blockId];
+    },
+
+    load : function(data) {},
+
+    highlight: function(id) {}
+};
