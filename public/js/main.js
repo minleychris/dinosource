@@ -37,14 +37,24 @@ App.prototype = {
 
     playClicked: function() {
 
-        this.agent.speak('La cucaracha ya no puede caminar');
+        var code = this.source.getModel();
+
+        $.ajax({
+            type: "POST",
+            url: "/solutions/" + this.exercises.activeExercise,
+            data: code
+        }).done($.proxy(this.correctionReceived, this));
+    },
+
+    correctionReceived: function(data) {
+        //TODO
     },
 
     getExercises: function() {
         $.ajax({
             type: "GET",
             url: "/exercises"
-        }).done(this.populateExercises);
+        }).done($.proxy(this.populateExercises, this));
     },
 
     populateExercises: function(result) {
@@ -58,6 +68,7 @@ App.prototype = {
             data = data[0];
         }
 
+        this.exercises.activeExercise = data.id;
         this.library.load(data.library);
         this.script.load(data.script);
         this.source.load({});
