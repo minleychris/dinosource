@@ -18,7 +18,7 @@ Grid.prototype = {
     createGrid: function() {
 
         for(var i=0; i<this.ROWS; i++) {
-            var newRow = $("<ul id='grid-row-'" + i + " class='grid-row'></ul>")
+            var newRow = $("<ul id='grid-row-" + i + "' class='grid-row'></ul>")
             for(var j=0; j<this.COLUMNS; j++) {
                 var newCell = $("<li id='grid-cell-" + i + "-" + j + "' class='grid-cell'></li>")
                 newRow.append(newCell);
