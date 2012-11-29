@@ -1,5 +1,5 @@
 function Grid(element, model) {
-    
+
     this.init(element, model);
 }
 
@@ -14,7 +14,7 @@ Grid.prototype = {
         this.model = model;
         this.createGrid();
     },
-    
+
     createGrid: function() {
 
         for(var i=0; i<this.ROWS; i++) {
@@ -26,7 +26,7 @@ Grid.prototype = {
             this.element.append(newRow);
         }
     },
-    
+
     on: function(x,y) {
 
         $("#grid-cell-" + x + "-" + y).addClass("on");
@@ -35,5 +35,9 @@ Grid.prototype = {
     off: function(x,y) {
 
         $("#grid-cell-" + x + "-" + y).removeClass("on");
+    },
+
+    clear: function() {
+        $('#grid .on').removeClass("on");
     }
 };
