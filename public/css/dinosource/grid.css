@@ -1,5 +1,7 @@
 .grid-row {
     display: block;
+    margin-bottom: 0;
+    height: 20px;
 }
 
 .grid-cell {

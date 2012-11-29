@@ -1,0 +1,10 @@
+.main-container {
+    box-shadow: 0 0 8px rgba(0,0,0,0.8);
+    border-radius(5px);
+}
+
+.section {
+    padding: 5px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}

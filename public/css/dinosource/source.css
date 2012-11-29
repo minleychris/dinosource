@@ -1,0 +1,20 @@
+.source {
+    min-height: 400px;
+    position: relative;
+}
+
+.source-slot {
+    min-height: 20px;
+    border: 2px dashed #ddd;
+    margin-bottom: 5px;
+}
+    .source-slot.drop-hover {
+        border: 2px dashed #333;
+    }
+.play-button { 
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 5px;
+
+}
