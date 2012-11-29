@@ -85,5 +85,9 @@ Source.prototype = {
 
     load : function(data) {},
 
-    highlight: function(id) {}
+    highlight: function(id) {
+
+        this.element.find(".js-code-block").removeClass("highlight");
+        this.element.find(".js-code-block[data-id=" + id + "]").addClass("highlight");
+    }
 };
