@@ -24,7 +24,6 @@ App.prototype = {
         var self = this;
         clippy.load('Clippy', function(agent) {
             // Do anything with the loaded agent
-            debugger;
             self.agent = agent;
             agent.show();
             agent.play('Searching');
