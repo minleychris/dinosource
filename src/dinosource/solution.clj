@@ -1,18 +1,11 @@
-(ns dinosource.solution)
-
-(def library
-  {:on (fn [x y] [{:x x
-                  :y y
-                  :state :on}])})
-
-(defn get-function [name]
-  (name library))
+(ns dinosource.solution
+  (:require [dinosource.library :as library]))
 
 (defn parse-block [{id :id
                    	function :function
                    	params :params}]
   {:highlight [id]
-   :changes (apply (get-function (keyword function)) params)})
+   :changes (apply (library/get-function (keyword function)) params)})
 
 
 (defn parse [code]
