@@ -175,9 +175,9 @@ clippy.Agent.prototype = {
      *
      * @param {String} text
      */
-    speak:function (text, hold) {
+    speak:function (text, hold, onPrev, onNext) {
         this._addToQueue(function (complete) {
-            this._balloon.speak(complete, text, hold);
+            this._balloon.speak(complete, text, hold, onPrev, onNext);
         }, this);
     },
 
@@ -752,9 +752,29 @@ clippy.Balloon.prototype = {
         return false;
     },
 
-    speak:function (complete, text, hold) {
+    speak:function (complete, text, hold, onPrev, onNext) {
         this._hidden = false;
         this.show();
+
+        $('#clippy-nav').remove();
+        if (onNext || onPrev) {
+            $(this._balloon[0]).append("<div id='clippy-nav' class='clippy-content'></div>");
+            if (onPrev) {
+                $('#clippy-nav').append("<span id='clippy-prev'>prev</span>");
+                $('#clippy-prev').click(function () {
+                    complete();
+                    onPrev()
+                });
+            }
+            if (onNext) {
+                $('#clippy-nav').append("<span id='clippy-next'>next</span>");
+                $('#clippy-next').click(function () {
+                    complete();
+                    onNext()
+                });
+            }
+        }
+
         var c = this._content;
         // set height to auto
         c.height('auto');

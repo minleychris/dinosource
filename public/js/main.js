@@ -5,7 +5,7 @@ $(function() {
 
 
 function App(element, model) {
-    
+
     this.init(element, model);
 }
 
@@ -27,12 +27,11 @@ App.prototype = {
             // Do anything with the loaded agent
             self.agent = agent;
             agent.show();
-            agent.play('Searching');
         });
     },
 
     assignEvents: function() {
-        
+
         $(".action-play").on("click", $.proxy(this.playClicked, this));
     },
 

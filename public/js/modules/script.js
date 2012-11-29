@@ -1,5 +1,5 @@
 function Script(element, model) {
-    
+
     this.init(element, model);
 }
 
@@ -22,6 +22,8 @@ Script.prototype = {
             this.steps.push(newStep);
         }
         this.printSteps();
+
+        this.speakStep(0);
     },
 
     printSteps: function() {
@@ -31,5 +33,19 @@ Script.prototype = {
 
             this.element.append(this.steps[i].getElement());
         }
+    },
+
+    speakStep: function(step) {
+        prev = false;
+        next = false;
+
+        if (this.model.length > step+1) {
+            next = step + 1;
+        }
+        if (step > 0) {
+            prev = step - 1;
+        }
+
+        this.steps[step].speak(this, prev, next);
     }
 };
