@@ -91,7 +91,7 @@ Source.prototype = {
                 tolerance: "pointer"
             });
         });
-        
+
     },
 
     addLibraryBlockParam: function(blockId, param) {
@@ -175,7 +175,7 @@ Source.prototype = {
         emptyContainer.prepareLayout();
         this.containerBlocks[emptyContainer.model.id] = emptyContainer;
         this.element.append(newSlot);
-        
+
     },
 
     highlight: function(id) {
@@ -187,5 +187,13 @@ Source.prototype = {
     clearHighlights: function() {
 
         $(".js-code-block").removeClass("highlight");
+    },
+
+    clear: function() {
+        $(".js-code-block").each(function (i, a) {
+            window.app.source.removeCodeBlock(
+                    window.app.source.getCodeBlock(
+                            $(a).attr("data-id")))
+        });
     }
 };

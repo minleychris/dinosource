@@ -143,6 +143,9 @@ $("body").addClass("playing");
         this.setTitle(data.title);
         this.setDescription(data.title);
 
+        this.source.clear();
+        this.grid.clear();
+
         if (this.agent) {
             this.script.speakStep(0);
         }
