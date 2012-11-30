@@ -6,6 +6,7 @@
     overflow: hidden;
     padding: 20px;
     box-sizing: border-box;
+    position: relative;
 }
 
 .tools-panel {
@@ -18,15 +19,19 @@
 .source {
     box-sizing: border-box;
     float: left;
-    width: 400px;
+    width: 600px;
     margin-right: 20px;
 }
 
 .grid {
     box-sizing: border-box;
     float: left;
-    width: 420px;
+    width: 540px;
     padding-bottom: 30px;
+}
+
+.exercises {
+
 }
 
 .script {
@@ -35,4 +40,7 @@
 
 .clippy-place {
     height: 200px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
