@@ -127,7 +127,29 @@ BlockContainer.prototype = {
 
     addCodeBlock: function(blockId, slot) {
 
-        //TODO
+        var codeBlock = window.app.source.blocks[blockId];
+        window.app.source.removeCodeBlock(codeBlock);
+        
+        //TODO: all this is repeated
+        var codeBlockElement = codeBlock.getElement();
+        codeBlockElement.insertBefore(slot);
+        var newSlot = this.createSlot();
+        newSlot.insertBefore(codeBlockElement);
+
+        var self = this;
+        codeBlockElement.find(".js-code-block-param").each(function(index, element) {
+            var receiver = $(element);
+            receiver.droppable({
+                accept : ".js-block, .js-code-block",
+                hoverClass: "drop-hover",
+                drop: function(event, ui) {
+                    self.droppedOnParam(event, ui, receiver);
+                },
+                tolerance: "pointer"
+            });
+        });
+
+        this.updateModel();
     },
 
     getElement : function() {
