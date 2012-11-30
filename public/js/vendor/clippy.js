@@ -762,14 +762,14 @@ clippy.Balloon.prototype = {
             if (onPrev) {
                 $('#clippy-nav').append("<span id='clippy-prev'>prev</span>");
                 $('#clippy-prev').click(function () {
-                    complete();
+//                    complete();
                     onPrev()
                 });
             }
             if (onNext) {
                 $('#clippy-nav').append("<span id='clippy-next'>next</span>");
                 $('#clippy-next').click(function () {
-                    complete();
+//                    complete();
                     onNext()
                 });
             }
@@ -788,6 +788,7 @@ clippy.Balloon.prototype = {
         this.reposition();
 
         this._complete = complete;
+        complete();
         this._sayWords(text, hold, complete);
     },
 
@@ -826,7 +827,7 @@ clippy.Balloon.prototype = {
             if (idx > words.length) {
                 this._active = false;
                 if (!this._hold) {
-                    complete();
+//                    complete();
                     this.hide();
                 }
             } else {

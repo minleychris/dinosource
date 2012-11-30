@@ -32,7 +32,7 @@ App.prototype = {
             setTimeout(function() {
                 self.script.speakStep(0);
             }, 3000);
-            
+
         });
     },
 
@@ -45,6 +45,9 @@ App.prototype = {
         var id = 1;
         var self = this;
 
+        window.app.agent.closeBalloon();
+        window.app.agent.play("Thinking");
+
         var code = this.source.getModel();
 
         $.ajax({
@@ -54,6 +57,8 @@ App.prototype = {
             processData: false,
             data: JSON.stringify(code)
         }).done(function (data) {
+            window.app.agent.stopCurrent();
+
             if (data.steps) {
                 var steps = data.steps;
 
@@ -61,6 +66,7 @@ App.prototype = {
 
                 function step (i) {
                     return function() {
+                        console.log("step: " + i);
                         var step = steps[i];
 
                         for (var j in step.highlight) {
@@ -75,12 +81,15 @@ App.prototype = {
                                 self.grid.off(change.x, change.y);
                             }
                         }
+                        console.log("done step: " + i);
                     }
                 }
 
                 for (var x in steps) {
-                    setTimeout(step(x), 3000*(x+1));
+                    setTimeout(step(x), 2000*(x+1));
                 }
+
+                setTimeout(self.source.clearHighlights, 2000*(x+2));
             }
         });
     },
