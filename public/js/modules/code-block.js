@@ -56,5 +56,20 @@ CodeBlock.prototype = {
             }
         }
         return model;
+    },
+
+    addBlockAsParam: function(block, paramName) {
+        
+        var paramContainer = this.element.find("[data-param-name=" + paramName +"]");
+        paramContainer.html(block.getElement());
+
+        for(var i=0; i<this.model.params.length; i++) {
+
+            if(this.model.params[i].name == paramName) {
+
+                this.model.params[i].value = block.model;
+                break;
+            }
+        }
     }
 };
