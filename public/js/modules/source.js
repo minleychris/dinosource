@@ -87,7 +87,12 @@ Source.prototype = {
 
     highlight: function(id) {
 
-        this.element.find(".js-code-block").removeClass("highlight");
+        this.clearHighlights();
         this.element.find(".js-code-block[data-id=" + id + "]").addClass("highlight");
+    },
+
+    clearHighlights: function() {
+
+        $(".js-code-block").removeClass("highlight");
     }
 };
