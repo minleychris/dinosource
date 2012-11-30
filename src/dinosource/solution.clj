@@ -12,7 +12,8 @@
 
 (defn expectedz? [actual expected]
   (and (= (:name actual) (:name expected))
-       (= (:params actual) (:params expected))))
+       (or (= (:params actual) (:params expected))
+           (nil? (:params expected)))))
 
 (defn expected-reducer [expected]
   (fn [index el]
