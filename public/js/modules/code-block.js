@@ -38,6 +38,15 @@ CodeBlock.prototype = {
         return this.element;
     },
 
+    afterInserting: function() {
+
+        this.element.find("input").autoGrowInput({
+            comfortZone: 10,
+            minWidth: 20,
+            maxWidth: 100
+        });
+    },
+
     getModel: function() {
 
         var model = {
@@ -62,6 +71,7 @@ CodeBlock.prototype = {
         
         var paramContainer = this.element.find("[data-param-name=" + paramName +"]");
         paramContainer.html(block.getElement());
+        block.afterInserting();
 
         for(var i=0; i<this.model.params.length; i++) {
 

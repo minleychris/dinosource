@@ -75,6 +75,7 @@ Source.prototype = {
         this.blocks[codeBlock.model.id] = codeBlock;
         var codeBlockElement = codeBlock.getElement();
         codeBlockElement.insertBefore(slot);
+        codeBlock.afterInserting();
         var newSlot = this.createSlot();
         newSlot.insertBefore(codeBlockElement);
 
@@ -90,6 +91,7 @@ Source.prototype = {
                 tolerance: "pointer"
             });
         });
+        
     },
 
     addLibraryBlockParam: function(blockId, param) {
