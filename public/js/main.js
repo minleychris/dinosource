@@ -97,8 +97,12 @@ $("body").addClass("playing");
                 }
 
                 for (var x in steps) {
-                    setTimeout(step(x), 2000*(x+1));
+                    var time = 2000*(parseInt(x)+1);
+                    console.log(time);
+                    setTimeout(step(x), time);
                 }
+
+                x = parseInt(x)
 
                 setTimeout(self.source.clearHighlights, 2000*(x+2));
 
