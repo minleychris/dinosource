@@ -10,7 +10,8 @@
              "Each pixel can be \"on\" or \"off\". All pixels are off, at the beginning."
              "Let's start by turning one pixel on. Drag the \"On\" block from the library (the leftmost column on the screen) into the code section (the middle column)."
              "Now fill in the first empty block of the \"On\" you just dragged with the number 5, and the second one with the number 7"
-             "Now press the Play button (at the bottom of the code section) and see what happens!"]}
+             "Now press the Play button (at the bottom of the code section) and see what happens!"]
+    :expected [{:name "on" :params [5, 7]}]}
 
    {:title "Turn another pixel on"
     :description ""
