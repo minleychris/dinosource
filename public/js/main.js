@@ -73,6 +73,12 @@ App.prototype = {
                             self.source.highlight(step.highlight[j]);
                         }
 
+                        for (var j in step.errors) {
+                            var offset = $(".highlight").offset();
+                            window.app.agent.gestureAt(offset.left, offset.top)
+                            window.app.agent.speak(step.errors[j], true);
+                        }
+
                         for (var j in step.changes) {
                             var change = step.changes[j];
                             if (change.state === "on") {

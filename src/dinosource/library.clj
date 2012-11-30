@@ -37,14 +37,22 @@
 ;;; Exported functions
 
 (defn on [x y]
-  [{:x x
-    :y y
-    :state :on}])
+  (if (or (= x "") (= y ""))
+    {:errors ["You need to enter a number in both boxes"]
+     :changes []}
+    {:errors []
+     :changes [{:x x
+    			:y y
+    			:state :on}]}))
 
 (defn off [x y]
-  [{ :x x
-    :y y
-    :state :off}])
+  (if (or (= x "") (= y ""))
+    {:errors ["You need to enter a number in both boxes"]
+     :changes []}
+    {:errors []
+     :changes [{:x x
+    			:y y
+    			:state :off}]}))
 
 (defn block
   ([name body] (block (name [] body)))
