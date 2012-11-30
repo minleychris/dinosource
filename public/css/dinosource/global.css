@@ -30,3 +30,37 @@ input[type=text]{
 input[type=text].long-field {
     width: 100px;
 }
+
+.play-button {
+    padding: 5px 10px;
+    box-sizing: border-box;
+    background: #aaeeff;
+    color: black;
+    border-radius: 5px;
+    text-decoration: none;
+    border: 1px solid #000;
+    margin: 5px;
+}
+.play-button:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+#clippy-next, #clippy-prev {
+    text-decoration: underline;
+    margin-top: 5px;
+    color: blue;
+}
+
+.exercise-link {
+    padding: 5px 10px;
+    background: #aaeeff;
+    color: #000;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.exercise-link:hover {
+    background: #007694;
+    color: #fff;
+}
