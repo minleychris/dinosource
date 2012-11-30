@@ -115,7 +115,7 @@ $("body").addClass("playing");
                     setTimeout(function () {
                         $.ajax({
                             type: "GET",
-                            url: "/exercises/" + parseInt(self.exercises.activeExercise) + 1
+                            url: "/exercises/" + (parseInt(self.exercises.activeExercise) + 1)
                         }).done(function(result) {
 
                             window.app.showExercise(result);
