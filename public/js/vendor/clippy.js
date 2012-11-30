@@ -664,8 +664,8 @@ clippy.Balloon = function (targetEl) {
 
 clippy.Balloon.prototype = {
 
-    WORD_SPEAK_TIME:320,
-    CLOSE_BALLOON_DELAY:2000,
+    WORD_SPEAK_TIME:120,
+    CLOSE_BALLOON_DELAY:1000,
 
     _setup:function () {
 
