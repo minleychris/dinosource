@@ -18,8 +18,8 @@
     (GET "/exercises" [] (response (get-exercise)))
     (GET "/exercises/:id" [id]
          (response (get-exercise (Integer. id))))
-    (POST "/solutions/:id" {body :body id :id}
-          (response (process-solution body id)))
+    (POST "/solutions/:id" {body :body params :params}
+          (response (process-solution body (Integer. (:id params)))))
     (route/files "/")
   	(route/not-found "Not Found"))
 
