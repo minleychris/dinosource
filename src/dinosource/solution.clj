@@ -1,4 +1,5 @@
 (ns dinosource.solution
+  (:use dinosource.exercise)
   (:require [dinosource.library :as library]))
 
 (defn parse-block [{id :id
@@ -9,9 +10,27 @@
      :changes changes
      :errors errors}))
 
+(defn expectedz? [actual expected]
+  (and (= (:name actual) (:name expected))
+       (= (:params actual) (:params expected))))
 
-(defn parse [code]
-  {:steps (map parse-block code)})
+(defn expected-reducer [expected]
+  (fn [index el]
+    (if (not (= index (count expected)))
+      (if (expectedz? el (nth expected index))
+        (inc index)
+        index)
+      index)))
 
-(defn process-solution [{code :code}]
-  (parse code))
+(defn assess-success [code expected]
+  (let [result (reduce (expected-reducer expected) 0 code)]
+    (if (= result (count expected))
+      true
+      false)))
+
+(defn parse [code expected]
+  {:steps (map parse-block code)
+   :success (assess-success code expected)})
+
+(defn process-solution [{code :code} id]
+  (parse code (:expected (first (get-exercise id)))))

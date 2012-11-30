@@ -15,4 +15,4 @@
 }"))]
       (is (= (:status response) 200))
       (is (= (slurp (:body response))
-             "{\"steps\":[{\"highlight\":[\"foo\"],\"changes\":[{\"x\":1,\"y\":2,\"state\":\"on\"}]}]}")))))
+             "{\"steps\":[{\"highlight\":[\"foo\"],\"changes\":[{\"x\":1,\"y\":2,\"state\":\"on\"}],\"errors\":[]}],\"success\":true}")))))
