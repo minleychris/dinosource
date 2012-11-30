@@ -8,10 +8,42 @@
     list-style: none;
     display: inline-block;
     border: 1px solid #808080;
-    width: 45px;
-    height: 45px;
-    
+    width: 41px;
+    height: 41px;
+    margin:2px;
+    border-radius: 5px;
+    position: relative;
+    -webkit-transition: background-color 0.3s ease-in-out;
 }
+    .grid-cell:hover {
+        cursor: default;
+        background: #ddd;
+    }
     .grid-cell.on {
-        background: red;
+        background: #dcad3c;
+    }
+    .grid-cell.on:hover {
+        background: #f2bd41;
+    }
+
+    .grid-cell-coordinates {
+        opacity: 0;
+        position: absolute;
+        left: -10px;
+        right: -10px;
+        bottom: 0;
+        background: black;
+        box-sizing: border-box;
+        padding: 5px;
+        color: white;
+        -webkit-transform: translate(0,0);
+        -webkit-transition: all 0.3s ease-in;
+        z-index: 10;
+        text-align: center;
+    }
+    .grid-cell:hover .grid-cell-coordinates {
+        cursor: default;
+        display: block;
+        opacity: 1;
+         -webkit-transform: translate(0,30px);
     }
