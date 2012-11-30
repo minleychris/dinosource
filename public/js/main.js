@@ -45,6 +45,9 @@ App.prototype = {
         var id = 1;
         var self = this;
 
+        window.app.agent.closeBalloon();
+        window.app.agent.play("Thinking");
+
         var code = this.source.getModel();
 
         $.ajax({
@@ -54,6 +57,8 @@ App.prototype = {
             processData: false,
             data: JSON.stringify(code)
         }).done(function (data) {
+            window.app.agent.stopCurrent();
+
             if (data.steps) {
                 var steps = data.steps;
 
