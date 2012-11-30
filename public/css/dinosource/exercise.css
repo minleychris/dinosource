@@ -4,6 +4,7 @@
     .exercises-title {
         margin-bottom: 5px;
         text-align: left;
+        
     }
 
 .exercise-link {
@@ -19,4 +20,11 @@
 .exercise-description {
     color: #666;
     margin-left: 10px;
+}
+
+.exercises-info {
+    text-align: center;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+    padding-top: 10px;
 }
