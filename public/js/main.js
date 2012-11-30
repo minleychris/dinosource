@@ -142,6 +142,10 @@ $("body").addClass("playing");
         this.source.load({});
         this.setTitle(data.title);
         this.setDescription(data.title);
+
+        if (this.agent) {
+            this.script.speakStep(0);
+        }
     },
 
     setTitle: function(title){
