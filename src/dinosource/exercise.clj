@@ -49,9 +49,9 @@
       :library (library/get-signatures :on :off)
       :script ["Now that we can turn a pixel on and off, we can make pixels blink!"
                "So, drag the blocks to turn a pixel on at (3, 3) and then to turn it off. Then, do it again, two more times, always on the same position."
-               "Press Play and watch that pixel blink!"]}
-    :expected [{:name "on"}
-               {:name "off"}]
+               "Press Play and watch that pixel blink!"]
+      :expected [{:name "on"}
+                 {:name "off"}]}
 
      {:title "Your own Blink block"
       :description ""
