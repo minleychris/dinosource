@@ -10,8 +10,7 @@
 }
 
 .logo {
-    display: inline-block;
-    width: 20%;
+
 }
 
 .tools-panel {
@@ -35,9 +34,17 @@
     padding-bottom: 30px;
 }
 
-.exercises {
-    display: inline-block;
-    width: 70%;
+.section, .exercises, .logo, .exercises-info {
+    opacity: 1.0;
+    -webkit-transition: opacity 0.5s ease-in-out;
+}
+
+.playing .section, .playing .exercises, .playing .logo, .playing .exercises-info {
+    opacity: 0.1;
+}
+
+.playing .source, .playing .grid {
+    opacity: 1;
 }
 
 .script {

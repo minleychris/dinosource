@@ -48,7 +48,7 @@ App.prototype = {
 
     playClicked: function() {
         var self = this;
-
+$("body").addClass("playing");
         window.app.agent.closeBalloon();
         window.app.agent.play("Thinking");
 
@@ -103,11 +103,13 @@ App.prototype = {
 
                 if (data.success) {
                     setTimeout(function () {
+                        $("body").removeClass("playing");
                         window.app.agent.play("Congratulate");
                         window.app.agent.speak("Well done...", true);
                     }, 2000*(x+2));
                 } else {
                     setTimeout(function () {
+                        $("body").removeClass("playing");
                         window.app.agent.play("GetAttention");
                         window.app.agent.speak("Nearly right, try again!", true);
                     }, 2000*(x+2));
