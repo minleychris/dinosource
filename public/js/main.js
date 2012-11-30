@@ -47,7 +47,6 @@ App.prototype = {
     },
 
     playClicked: function() {
-        var id = 1;
         var self = this;
 
         window.app.agent.closeBalloon();
@@ -57,7 +56,7 @@ App.prototype = {
 
         $.ajax({
             type: "POST",
-            url: "/solutions/" + id,
+            url: "/solutions/" + this.exercises.activeExercise,
             contentType : 'application/json',
             processData: false,
             data: JSON.stringify(code)
@@ -101,6 +100,18 @@ App.prototype = {
                 }
 
                 setTimeout(self.source.clearHighlights, 2000*(x+2));
+
+                if (data.success) {
+                    setTimeout(function () {
+                        window.app.agent.play("Congratulate");
+                        window.app.agent.speak("Well done...", true);
+                    }, 2000*(x+2));
+                } else {
+                    setTimeout(function () {
+                        window.app.agent.play("GetAttention");
+                        window.app.agent.speak("Nearly right, try again!", true);
+                    }, 2000*(x+2));
+                }
             }
         });
     },
