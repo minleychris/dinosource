@@ -39,6 +39,11 @@ App.prototype = {
     assignEvents: function() {
 
         $(".action-play").on("click", $.proxy(this.playClicked, this));
+        $(".action-add-container").on("click", $.proxy(this.addContainerClicked, this));
+    },
+
+    addContainerClicked: function() {
+        this.source.addEmptyContainer();
     },
 
     playClicked: function() {
