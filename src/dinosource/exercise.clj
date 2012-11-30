@@ -18,7 +18,8 @@
     :id 1
     :library (library/get-signatures :on)
     :script ["Now, can you turn on a pixel at coordinates 6 and 10?"
-             "If you have problems, go back to the previous exercise and see how it's done. It's the same thing, except we are now turning on a pixel at (6, 10), instead of (5, 7)"]}
+             "If you have problems, go back to the previous exercise and see how it's done. It's the same thing, except we are now turning on a pixel at (6, 10), instead of (5, 7)"]
+    :expected [{:name "on"}]}
 
    {:title "Turn several pixels on"
     :description ""
@@ -28,7 +29,8 @@
              "So, drag the On block from the library to the code section, and fill it with 1 and 2."
              "Now, drag On block again, place it below the one you dragged earlier, and fill it with 2 and 3."
              "As you can see, you can drag the same On block into the code section as many times as you want, and fill it with different numbers."
-             "Now press Play and see what you've drawn."]}
+             "Now press Play and see what you've drawn."]
+    :expected [{:name "on"}]}
 
    {:title "Turn a pixel OFF"
     :description ""
@@ -38,7 +40,8 @@
              "But, to turn it off, we must first turn it on."
              "So, drag the blocks to turn two pixels on, the first one at (1, 2) and the second one at (5, 5)."
              "Now, drag an Off block below the ones you dragged earlier, and fill it with (1, 2). Drag an Off block again and fill it with (5, 5)."
-             "Now press Play!"]}
+             "Now press Play!"]
+    :expected [{:name "off"}]}
 
      {:title "Blink a pixel"
       :description ""
@@ -47,6 +50,8 @@
       :script ["Now that we can turn a pixel on and off, we can make pixels blink!"
                "So, drag the blocks to turn a pixel on at (3, 3) and then to turn it off. Then, do it again, two more times, always on the same position."
                "Press Play and watch that pixel blink!"]}
+    :expected [{:name "on"}
+               {:name "off"}]
 
      {:title "Your own Blink block"
       :description ""
