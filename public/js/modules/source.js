@@ -169,6 +169,8 @@ Source.prototype = {
     addEmptyContainer: function() {
 
         var emptyContainer = new BlockContainer();
+        var newBlock = window.app.library.createUserBlock();
+        emptyContainer.setLibraryBlock(newBlock);
         var newSlot = this.createSlot();
 
         this.element.append(emptyContainer.getElement());

@@ -68,7 +68,7 @@ CodeBlock.prototype = {
     },
 
     addBlockAsParam: function(block, paramName) {
-        
+
         var paramContainer = this.element.find("[data-param-name=" + paramName +"]");
         paramContainer.html(block.getElement());
         block.afterInserting();

@@ -37,5 +37,24 @@ Block.prototype = {
     getElement : function() {
 
         return this.element;
+    },
+
+    updateName: function(newName) {
+
+        this.model.name = newName;
+        this.element.find(".js-block-name").html(newName);
+    },
+
+    updateParams: function(newParams) {
+
+        this.model.params = newParams;
+        this.element.find(".js-block-param").remove();
+        if (this.model.params) {
+            for (var i = 0; i < this.model.params.length; i++) {
+
+                var param = this.model.params[i];
+                this.element.append("<div class='js-block-param block-param'>" + param + "</div>");
+            }
+        }
     }
 }; 

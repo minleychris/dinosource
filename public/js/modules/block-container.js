@@ -6,6 +6,7 @@ function BlockContainer(element, model) {
 BlockContainer.prototype = {
 
     autoIncrement: 1000,
+    libraryBlock: false,
 
     init : function(model) {
 
@@ -38,6 +39,22 @@ BlockContainer.prototype = {
             var slot = this.createSlot();
             slot.prependTo(this.bodyContainer);
         }
+
+        var self = this;
+        this.element.find(".js-block-container-name").on("keyup", function() {
+
+            var newName = self.element.find(".js-block-container-name").val();
+            if(self.libraryBlock) {
+                self.libraryBlock.updateName(newName);
+            }
+        });
+        this.element.find(".js-block-container-params").on("keyup", function() {
+
+            var newParams = self.element.find(".js-block-container-params").val().split(" ");
+            if(self.libraryBlock) {
+                self.libraryBlock.updateParams(newParams);
+            }
+        });
     },
 
     createSlot: function() {
@@ -156,5 +173,10 @@ BlockContainer.prototype = {
     getElement : function() {
 
         return this.element;
+    },
+
+    setLibraryBlock: function(block) {
+
+        this.libraryBlock = block;
     }
 }; 

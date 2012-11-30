@@ -37,6 +37,7 @@ Library.prototype = {
             this.element.append(this.blocks[i].getElement());
         }
     },
+
     getBlock: function(blockId) {
 
         for(var i=0; i<this.blocks.length; i++) {
@@ -45,5 +46,18 @@ Library.prototype = {
             }
         }
         return false;
+    },
+
+    createUserBlock: function() {
+
+        var newBlock = new Block({
+            id: this.autoIncrement++,
+            name: "Unknown",
+            params: []
+        });
+        this.blocks.push(newBlock);
+        this.element.append(newBlock.getElement());
+
+        return newBlock;
     }
 };
