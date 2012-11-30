@@ -105,8 +105,17 @@ $("body").addClass("playing");
                     setTimeout(function () {
                         $("body").removeClass("playing");
                         window.app.agent.play("Congratulate");
-                        window.app.agent.speak("Well done...", true);
+//                        window.app.agent.speak("Well done.  Lets start the next exercise.", true);
                     }, 2000*(x+2));
+                    setTimeout(function () {
+                        $.ajax({
+                            type: "GET",
+                            url: "/exercises/" + parseInt(self.exercises.activeExercise) + 1
+                        }).done(function(result) {
+
+                            window.app.showExercise(result);
+                        });
+                    }, 2000*(x+3));
                 } else {
                     setTimeout(function () {
                         $("body").removeClass("playing");
