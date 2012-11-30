@@ -4,8 +4,10 @@
 (defn parse-block [{id :id
                    	function :name
                    	params :params}]
-  {:highlight [id]
-   :changes (apply (library/get-function (keyword function)) params)})
+  (let [{changes :changes errors :errors} (apply (library/get-function (keyword function)) params)]
+    {:highlight [id]
+     :changes changes
+     :errors errors}))
 
 
 (defn parse [code]
