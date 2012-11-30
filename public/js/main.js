@@ -27,7 +27,12 @@ App.prototype = {
             // Do anything with the loaded agent
             self.agent = agent;
             agent.show();
-            self.script.speakStep(0);
+            var clippyPlace = $(".js-clippy-place").offset();
+            agent.moveTo(clippyPlace.left + 120, clippyPlace.top + 180);
+            setTimeout(function() {
+                self.script.speakStep(0);
+            }, 3000);
+            
         });
     },
 
