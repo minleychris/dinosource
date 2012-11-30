@@ -78,6 +78,7 @@ $("body").addClass("playing");
                         }
 
                         for (var j in step.errors) {
+                            errors = true;
                             var offset = $(".highlight").offset();
                             window.app.agent.gestureAt(offset.left, offset.top)
                             window.app.agent.speak(step.errors[j], true);
@@ -122,6 +123,9 @@ $("body").addClass("playing");
                         window.app.agent.play("GetAttention");
                         window.app.agent.speak("Nearly right, try again!", true);
                     }, 2000*(x+2));
+                    setTimeout(function () {
+                        self.script.speakStep(0);
+                    }, 2000*(x+6));
                 }
             }
         });
