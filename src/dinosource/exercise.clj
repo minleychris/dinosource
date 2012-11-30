@@ -18,7 +18,8 @@
     :id 1
     :library (library/get-signatures :on)
     :script ["Now, can you turn on a pixel at coordinates 6 and 10?"
-             "If you have problems, go back to the previous exercise and see how it's done. It's the same thing, except we are now turning on a pixel at (6, 10), instead of (5, 7)"]}
+             "If you have problems, go back to the previous exercise and see how it's done. It's the same thing, except we are now turning on a pixel at (6, 10), instead of (5, 7)"]
+    :expected [{:name "on"}]}
 
    {:title "Turn several pixels on"
     :description ""
@@ -28,7 +29,8 @@
              "So, drag the On block from the library to the code section, and fill it with 1 and 2."
              "Now, drag On block again, place it below the one you dragged earlier, and fill it with 2 and 3."
              "As you can see, you can drag the same On block into the code section as many times as you want, and fill it with different numbers."
-             "Now press Play and see what you've drawn."]}
+             "Now press Play and see what you've drawn."]
+    :expected [{:name "on"}]}
 
    {:title "Turn a pixel OFF"
     :description ""
@@ -38,7 +40,8 @@
              "But, to turn it off, we must first turn it on."
              "So, drag the blocks to turn two pixels on, the first one at (1, 2) and the second one at (5, 5)."
              "Now, drag an Off block below the ones you dragged earlier, and fill it with (1, 2). Drag an Off block again and fill it with (5, 5)."
-             "Now press Play!"]}
+             "Now press Play!"]
+    :expected [{:name "off"}]}
 
      {:title "Blink a pixel"
       :description ""
@@ -47,12 +50,14 @@
       :script ["Now that we can turn a pixel on and off, we can make pixels blink!"
                "So, drag the blocks to turn a pixel on at (3, 3) and then to turn it off. Then, do it again, two more times, always on the same position."
                "Press Play and watch that pixel blink!"]}
+    :expected [{:name "on"}
+               {:name "off"}]
 
      {:title "Your own Blink block"
       :description ""
       :id 5
-      :library (into (library/get-signatures :on :off)
-                     ;; For this exercise, we want the arity-2 version of "block", (i.e., name and body)
+      :library (conj (vec (library/get-signatures :on :off))
+                     ;;: For this exercise, we want the arity-2 version of "block", (i.e., name and body)
                      (library/get-signature :block 2))
       :script ["Blinking a pixel is fun, but repeating the same blocks over and over is not."
                "What we really want is to give a name to \"turn this pixel on, then turn it off\", and just say that name when we want it to happen."
@@ -69,7 +74,7 @@
      {:title "Smling and Blinking"
       :description ""
       :id 6
-      :library (into (library/get-signatures :on :off) (library/get-signature :block 2))
+      :library (conj (vec (library/get-signatures :on :off)) (library/get-signature :block 2))
       :script ["Now we can create blocks to easily repeat tasks, like blinking a pixel. Let's put this to work and make a smiling face that blinks its eyes!"
                "So: drag blocks to turn on the pixels at (2, 4) and (2, 6) for the eyes."
                "Then, for the smile, turn on the pixels at (3, 3), (4, 4), (4, 5), (4, 6) and (3, 7)."
