@@ -26,3 +26,7 @@
 input[type=text]{
     width: 20px;
 }
+
+input[type=text].long-field {
+    width: 100px;
+}

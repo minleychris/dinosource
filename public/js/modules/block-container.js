@@ -24,8 +24,8 @@ BlockContainer.prototype = {
     createElement : function() {
 
         this.element = $("<div data-type='block-container' data-id='" + this.model.id + "'class='block-common js-block-container block-container'>")
-                            .append("<p><span class='block-container-name-label'>Name:</span><input class='js-block-container-name block-container-name' type='text' value='" + this.model.name + "'></p>")
-                            .append("<div class='block-container-params'><span class='block-container-params-label'>Params:</span><input class='js-block-container-params block-container-params' type='text' value='param1'></div>")
+                            .append("<div class='block-param'><input class='js-block-container-name block-container-name long-field' type='text' value='' placeholder='" + this.model.name + "'></div>")
+                            .append("<div class='block-container-params block-param'><input class='js-block-container-params block-container-params long-field' type='text' value='' placeholder='params'></div>")
                             .append("<div class='block-container-body js-block-container-body'></div>");
 
     },
