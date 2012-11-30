@@ -32,7 +32,7 @@ Source.prototype = {
         var slot = $("<div class='js-source-slot source-slot'>");
         var self = this;
         slot.droppable({
-            accept : ".js-block",
+            accept : ".js-block, .js-container-block-lib",
             hoverClass: "drop-hover",
             drop: function(event, ui) {
                 self.droppedOnSlot(event, ui, slot);
@@ -50,6 +50,8 @@ Source.prototype = {
 
         if(blockType === "library-block") {
             this.addBlock(blockId, slot);
+        } else if(blockType === "library-block-container") {
+            this.addEmptyContainer();
         }
     },
 
