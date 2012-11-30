@@ -77,6 +77,7 @@ BlockContainer.prototype = {
 
         var codeBlockElement = codeBlock.getElement();
         codeBlockElement.insertBefore(slot);
+        codeBlock.afterInserting();
         var newSlot = this.createSlot();
         newSlot.insertBefore(codeBlockElement);
 
