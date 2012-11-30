@@ -9,6 +9,11 @@
     position: relative;
 }
 
+.logo {
+    display: inline-block;
+    width: 20%;
+}
+
 .tools-panel {
     box-sizing: border-box;
     float: left;
@@ -31,7 +36,8 @@
 }
 
 .exercises {
-
+    display: inline-block;
+    width: 70%;
 }
 
 .script {
