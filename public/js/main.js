@@ -78,6 +78,7 @@ $("body").addClass("playing");
                         }
 
                         for (var j in step.errors) {
+                            errors = true;
                             var offset = $(".highlight").offset();
                             window.app.agent.gestureAt(offset.left, offset.top)
                             window.app.agent.speak(step.errors[j], true);
@@ -96,8 +97,12 @@ $("body").addClass("playing");
                 }
 
                 for (var x in steps) {
-                    setTimeout(step(x), 2000*(x+1));
+                    var time = 2000*(parseInt(x)+1);
+                    console.log(time);
+                    setTimeout(step(x), time);
                 }
+
+                x = parseInt(x)
 
                 setTimeout(self.source.clearHighlights, 2000*(x+2));
 
@@ -105,14 +110,26 @@ $("body").addClass("playing");
                     setTimeout(function () {
                         $("body").removeClass("playing");
                         window.app.agent.play("Congratulate");
-                        window.app.agent.speak("Well done...", true);
+//                        window.app.agent.speak("Well done.  Lets start the next exercise.", true);
                     }, 2000*(x+2));
+                    setTimeout(function () {
+                        $.ajax({
+                            type: "GET",
+                            url: "/exercises/" + parseInt(self.exercises.activeExercise) + 1
+                        }).done(function(result) {
+
+                            window.app.showExercise(result);
+                        });
+                    }, 2000*(x+3));
                 } else {
                     setTimeout(function () {
                         $("body").removeClass("playing");
                         window.app.agent.play("GetAttention");
                         window.app.agent.speak("Nearly right, try again!", true);
                     }, 2000*(x+2));
+                    setTimeout(function () {
+                        self.script.speakStep(0);
+                    }, 2000*(x+6));
                 }
             }
         });
@@ -142,6 +159,9 @@ $("body").addClass("playing");
         this.source.load({});
         this.setTitle(data.title);
         this.setDescription(data.title);
+
+        this.source.clear();
+        this.grid.clear();
 
         if (this.agent) {
             this.script.speakStep(0);
