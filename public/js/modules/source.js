@@ -14,6 +14,7 @@ Source.prototype = {
         this.model.code = this.model.code || [];
         this.prepareLayout();
         this.blocks = {};
+        this.containerBlocks = {};
     },
 
     prepareLayout : function() {
@@ -87,7 +88,6 @@ Source.prototype = {
                 tolerance: "pointer"
             });
         });
-
     },
 
     addLibraryBlockParam: function(blockId, param) {
@@ -142,6 +142,9 @@ Source.prototype = {
             if(element.data("type")=="code-block") {
                 var codeBlock = this.getCodeBlock(element.data("id"));
                 model.code.push(codeBlock.getModel());
+            } else if(element.data("type")=="block-container") {
+                var containerBlock = this.getContainerBlock(element.data("id"));
+                model.code.push(containerBlock.getModel());
             }
         }
         return model;
@@ -152,7 +155,24 @@ Source.prototype = {
         return this.blocks[blockId];
     },
 
+    getContainerBlock: function(blockId) {
+
+        return this.containerBlocks[blockId];
+    },
+
     load : function(data) {},
+
+    addEmptyContainer: function() {
+
+        var emptyContainer = new BlockContainer();
+        var newSlot = this.createSlot();
+
+        this.element.append(emptyContainer.getElement());
+        emptyContainer.prepareLayout();
+        this.containerBlocks[emptyContainer.model.id] = emptyContainer;
+        this.element.append(newSlot);
+        
+    },
 
     highlight: function(id) {
 
