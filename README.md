@@ -1,5 +1,6 @@
 # dinosource
 
+Hyves hackathon project Nov 29-30 2012
 
 ## Prerequisites
 
